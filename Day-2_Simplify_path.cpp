@@ -60,8 +60,8 @@ int main(){
 
 Solution s1= Solution();
 string path = "/a/../b/./c//d/e/";
-string res = s1.simplifyPath(path);
-cout<<res<<endl;
+string ans = s1.simplifyPath(path);
+cout<<ans<<endl;
 
 
     return 0;
