@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     string removeStars(string s) {
@@ -25,3 +28,14 @@ public:
         
     }
 };
+
+int main(){
+
+Solution s1= Solution();
+string stringS= "andc*wssd**d*xnk**";
+string res = s1.removeStars(stringS);
+cout<<res<<endl;
+
+
+    return 0;
+}

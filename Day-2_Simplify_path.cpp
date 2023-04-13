@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     string simplifyPath(string path) {
@@ -51,4 +54,15 @@ public:
         }
         return ans;
     }
+
 };
+int main(){
+
+Solution s1= Solution();
+string path = "/a/../b/./c//d/e/";
+string res = s1.simplifyPath(path);
+cout<<res<<endl;
+
+
+    return 0;
+}
