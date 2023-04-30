@@ -3,10 +3,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-
-
 int romanToInt(string s) {
         unordered_map<char, int> romToInt = {
             {'I', 1},
