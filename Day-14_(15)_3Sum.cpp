@@ -38,9 +38,12 @@ using namespace std;
 int main(){
 vector<int>nums={2,1,3,4,5,8,7,9,6,10,13,12,11,14};
 
-vector<int> ans = threeSum(nums);
+vector<vector<int>> ans = threeSum(nums);
 for(auto &x:ans){
-    cout<<x;
+    for(auto &i:x){
+        cout<<i;
+    }
+    cout<<endl;
 }
 
 return 0;
