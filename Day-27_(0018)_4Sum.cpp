@@ -38,7 +38,7 @@ int main(){
 vector<int>nums={1,12,14,12,11,13,15,11,16,21,33,321,123,145,221,-11,-12,-13,121,-121,-323};
 
 vector<vector<int>> ans = fourSum(nums,67);
-for(auto&x:nums){
+for(auto&x:ans){
     for(auto&i:x){
         cout<<i<<" ";
     }
