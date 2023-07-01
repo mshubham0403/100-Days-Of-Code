@@ -1,27 +1,41 @@
 #include<bits/stdc++.h>
 using namespace std;
 
- void rotate(vector<vector<int>>& matrix) {
-  int n =matrix.size();
-      int m =matrix[0].size();
-      for(int i=0;i<n;i++){
-          for(int j=i+1;j<m;j++){
-           swap(matrix[i][j],matrix[j][i]);
-          }
-          for(int j=0;j<m/2;j++){
-              int sw =m-1-j;
-              swap(matrix[i][j],matrix[i][sw]);
-          }
-      }
+vector<int> spiralOrder(vector<vector<int>>& matrix) {
+    if (matrix.empty())
+      return {};
+
+    const int m = matrix.size();
+    const int n = matrix[0].size();
+    vector<int> ans;
+    int br = 0;
+    int bc = 0;
+    int er = m - 1;
+    int ec = n - 1;
+
+   
+    while (br<=er && bc<=ec) {
+      for (int j = bc; j <= ec && ans.size() < m * n; j++)
+        ans.emplace_back(matrix[br][j]);
+      for (int i = br + 1; i <= er - 1 && ans.size() < m * n; i++)
+        ans.emplace_back(matrix[i][ec]);
+      for (int j = ec; j >=bc  && ans.size() < m * n; j--)
+        ans.emplace_back(matrix[er][j]);
+      for (int i = er- 1; i >= br + 1 && ans.size() < m * n; i--)
+        ans.emplace_back(matrix[i][bc]);
+      br++, bc++, er--, ec--;
+    }
+
+    return ans;
   }
 int main(){
 vector<vector<int>> nums={{1,2,3},{8,99,45},{0,21,0}};
 
- rotate(nums);
-for(auto &x:nums){
-    for(auto &i:x){
-        cout<<i<<" ";
-    }
+ vector<int> ans = spiralOrder(nums);
+for(auto &x:ans){
+   
+        cout<<x<<" ";
+    
 }
 cout<<endl;
 
