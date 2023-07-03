@@ -1,53 +1,51 @@
 #include<bits/stdc++.h>
 using namespace std;
+   
+  bool search2(vector<int>& nums, int target) {
    //MS001
-  //MS001
-  int searchRotated(vector<int>& nums, int target) {
+
+    
     int high =nums.size()-1;
         int low = 0;
       int k =0;
-      while(low<=high){
-         int   mid =low+((high-low)/2);
-            if(nums[mid]>=nums[low]){
-                cout<<"first if "<<nums[mid]<<" "<<nums[low]<<endl;
-                if(mid+1>high ||mid<low){
-                    break;
-                }
-                if(nums[mid+1]>nums[mid]){cout<<"mid+1 "<<nums[mid+1]<<endl;low=mid+1;}
-                else {k=mid+1;break;}
-            }
-            else {
-                cout<<"first else "<<nums[mid]<<" "<<nums[low]<<endl;
-
-                if(nums[mid-1]>nums[mid]){k=mid;break;}
-                high=mid-1;
-            }
-       
-          
-        }
        int n=nums.size();
-      low=k;high=n-1+k;
+ 
         while(low<=high){
-         int   mid =low+((high-low)/2);
-          int   midi=mid%n;
+         int   midi =low+((high-low)/2);
+       
             if(nums[midi]==target){
-                return midi;
+                return true;
             }
-            else if(nums[midi]>target){
-                high=mid-1;
-               
+            if(nums[high]==nums[low] && nums[low]==nums[midi]){
+                low++;high--;
+                continue;
             }
+    if(nums[low]<=nums[midi]){
+                    if(target>=nums[low]&& nums[midi]>=target){
+                      high=midi-1;
+                    }
+                else{
+                    low=midi+1;
+                }
+            }
+            else {       
+            if(target>=nums[midi] && target<=nums[high]){
+                low=midi+1;
+            }
+           
+          
             else{
-                low=mid+1;
+                high=midi-1;
             }
         }
-        return -1;
+        }
+        return 0;
   }
 int main(){
 
-vector<int>nums= {91,102,5,6,23,12,87};
+vector<int>nums= {91,102,5,6,6,6,23,12,87};
 
-int ans  =searchRotated(nums,5);
+int ans  =search2(nums,6);
 cout<<ans;
  cout<<endl;
 
