@@ -99,6 +99,7 @@ cout<<endl;
 int ans = minDepth(root);
 
  cout<<ans;
+ //ans
  cout<<endl;
 return 0;
 }
