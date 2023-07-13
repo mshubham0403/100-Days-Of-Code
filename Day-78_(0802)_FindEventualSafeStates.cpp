@@ -67,7 +67,7 @@ vector < vector<int> > graph = {
                                 {7,2,6},
                                 {6,2,8},
                                 {4,1,9,5},
-                                {8,7,9}
+                                {8,7,1}
 };
 
 vector<int> ans = eventualSafeNodes(graph);
