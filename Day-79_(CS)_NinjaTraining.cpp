@@ -29,11 +29,11 @@ vector < vector<int> > nums= {
                                 {4,8,3},
                                 {7,2,6},
                                 {6,2,8},
-                                {4,1,9},
-                                {8,7,1}
+                                {4,1,9}
+                             
 };
 
-int ans = ninjaTraining(9,nums);
+int ans = ninjaTraining(8,nums);
 cout<<ans<<"\n";
  cout<<endl;
 return 0;
