@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-   //day-70
+   //day-83
    //MS001;
 
 
@@ -57,5 +57,7 @@ Node* delNode = head->next->next->next;
 printList(head);
 deleteNode(head);
 printList(head);
+
+
 return 0;
 }
