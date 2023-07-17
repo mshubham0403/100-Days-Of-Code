@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-   //day-84
+   //day-56
    //MS001;
 
 
@@ -39,43 +39,34 @@ using namespace std;
     return head;
 
  }  
-   Node* deleteMiddle(Node* head) {
-        if(head==nullptr ) return head;
-        if(head->next==nullptr){
-            head=nullptr;
-            return head;
-        }
-        int size=0;
-        Node * ptr =head;
-        while(ptr!=nullptr){
-            size++;
-            ptr=ptr->next;
-        }
-        int middle =size/2;
-        int cnt=0;
-        ptr=head;
-        while(cnt<middle-1){
-            cnt++;
-            ptr=ptr->next;
-        }
-        Node* a=ptr->next;
-        ptr->next =ptr->next->next;
-        a->next=nullptr;
-        return head;
-        
-        
-    }
+ bool hasCycle(Node* head) {
+      if(head==nullptr ||head->next==nullptr){
+          return false;
+      }
+  Node *fast=head->next,*slow=head;
+   while(fast!=slow){   
+      if(fast->next==nullptr) return false;
+      if(fast->next->next==nullptr) return false;
+      fast=fast->next->next;
+      slow=slow->next;
+   }
+      return true;
+  }
 
 int main(){
 
-int n;
+
 
 vector<int>Nodes= {2,13,5,67,54,-12,33,15,68,12,24,-14,-15,-61,99,88,64};
 
 Node* head =makeList(Nodes);
-Node* delNode = head->next->next->next;
-printList(head);
-Node* ans =deleteMiddle(head);
-printList(ans);
+Node* loopNode = head->next->next->next;
+Node *itr =head;
+while(itr->next!=nullptr){
+    itr=itr->next;
+}
+itr->next=loopNode;
+bool ans =hasCycle(head);
+cout<<ans<<"\n";
 return 0;
 }
