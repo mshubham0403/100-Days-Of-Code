@@ -43,7 +43,7 @@ using namespace std;
     }
 int main(){
 
-vector<vector<int>>nums= {{1,3},{2,6},{1,4},{3,5},{4,9},{7,14}};
+vector<vector<int>>nums= {{1,3},{1,6},{1,4},{3,5},{4,9},{7,14}};
 int ans = eraseOverlapIntervals(nums);
 
    cout<<ans<<" ";
